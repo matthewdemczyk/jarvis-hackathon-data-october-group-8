@@ -1,0 +1,7 @@
+accounts are a class with an attribute for each column from the accounts csv file
+    couldve improved storage by not storing irrelevant columns like account type, currency
+collection of accounts are stored in an array, indexed by last 3 digits of account number
+    this allows constant time lookup
+    fragile if accounts are not in order, or have any account numbers inbetween missing
+for keeping track of duplicaetd transaction IDs are stored in a hash set
+no class or storage for a transaction's details

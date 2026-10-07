@@ -67,10 +67,10 @@ if __name__ == '__main__':
                     to_account_array_index = int(toAccount[4:7])-1
                 else:
                     to_account_array_index = None
-                print(fromAccount,from_account_array_index)
+                #print(fromAccount,from_account_array_index)
                 valid = True
 
-                print(fromAccount, from_account_array_index, toAccount, to_account_array_index)                
+                #print(fromAccount, from_account_array_index, toAccount, to_account_array_index)                
                 #have if statements for the various cases here
                 #if (from_account_array_index == None or to_account_array_index == None or from_account_array_index < 0 or from_account_array_index >= len(account_list) or to_account_array_index < 0 or to_account_array_index >= len(account_list)):
                 if from_account_array_index != None and fromAccount not in account_ids_that_exist:
