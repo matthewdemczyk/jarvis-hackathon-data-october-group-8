@@ -38,6 +38,10 @@ if __name__ == '__main__':
                 account_to_add = Account(accountId,customerName,accountType,status,balance,dailyLimit,currency,openedDate)
                 account_list.append(account_to_add)
 
+        approved = 0
+        rejected = 0
+        flagged = 0
+        
         #begin processing transactions
         with open('transactions (1).csv', 'rt') as trx_file:
             datareader = csv.reader(trx_file)
@@ -54,7 +58,27 @@ if __name__ == '__main__':
                     to_account_array_index = None
                 print(fromAccount,from_account_array_index)
                 valid = True
+
+                
                 #have if statements for the various cases here
+                if fromAccount == "FROZEN" or fromAccount == "CLOSED":
+                    valid = False
+                elif dailyLimit < amount or balance < amount:
+                    valid = False
+                else:
+                    valid
+
                 if valid:
-                     #process the transactions
-                     pass
+                    if float(amount) > 10000:
+                        print (transactionId, " Approved but flagged")
+                        flagged += 1
+                    print (transactionId, " Approved")
+                    approved += 1
+                    #toAccount balance += float(amount)
+                    #fromAccount balance -= float(amount)
+                    #process the transactions
+                    pass
+                else:
+                    print (transactionId, " Rejected")
+                    rejected += 1
+            print("Approved: " + str(approved), "\nRejected: " + str(rejected), "\nApproved but flagged: " + str(flagged))
